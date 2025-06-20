@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - SABAH College Union</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Admin Sign In Modal -->
+    <div id="adminSignInModal" class="modal">
+        <div class="modal-content" style="background: #fff; padding: 2rem 2.5rem; border-radius: 10px; box-shadow: 0 2px 16px rgba(0,0,0,0.2); min-width: 320px; max-width: 90vw;">
+            <h2 style="margin-bottom: 1.5rem; text-align: center;">Admin Sign In</h2>
+            <form id="adminSignInForm">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label for="adminUsername">Username</label>
+                    <input type="text" id="adminUsername" name="username" required autocomplete="username">
+                </div>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" name="password" required autocomplete="current-password">
+                </div>
+                <div id="adminSignInError" style="color: #ff6b6b; margin-bottom: 1rem; display: none; text-align: center;"></div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="adminProtectedContent" style="display: none;">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>SABAH</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="programs.html" class="nav-link">Programs</a></li>
+                    <li><a href="publications.html" class="nav-link">Publications</a></li>
+                    <li><a href="members.html" class="nav-link">Members</a></li>
+                    <li><a href="admin.html" class="nav-link active">Admin</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Admin Panel -->
+        <section class="admin-section" id="adminPanelSection">
+            <div class="container">
+                <h1 class="admin-title">Admin Panel</h1>
+                <p class="admin-subtitle">Manage programs and publications</p>
+                <!-- Tab Navigation -->
+                <div class="tab-navigation">
+                    <button class="tab-btn active" data-target="programsTab">Programs</button>
+                    <button class="tab-btn" data-target="publicationsTab">Publications</button>
+                    <button class="tab-btn" onclick="runDiagnostic()" style="background: #ff6b6b; color: white;">🔧 Diagnostic</button>
+                </div>
+                <!-- Programs Tab -->
+                <div id="programsTab" class="tab-content active">
+                    <div class="admin-grid">
+                        <!-- Add Program Form -->
+                        <div class="form-section">
+                            <h3>Add New Program</h3>
+                            <form id="programsForm" class="admin-form">
+                                <div class="form-group">
+                                    <label for="programTitle">Title</label>
+                                    <input type="text" id="programTitle" name="title" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="programCategory">Category</label>
+                                    <select id="programCategory" name="category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="academic">Academic</option>
+                                        <option value="community">Community</option>
+                                        <option value="leadership">Leadership</option>
+                                        <option value="cultural">Cultural</option>
+                                        <option value="technology">Technology</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="programDescription">Short Description</label>
+                                    <textarea id="programDescription" name="description" rows="3" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="programLongDescription">Long Description</label>
+                                    <textarea id="programLongDescription" name="longDescription" rows="5" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="programImage">Image URL</label>
+                                    <input type="url" id="programImage" name="image" placeholder="https://images.unsplash.com/..." required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="programDate">Date</label>
+                                    <input type="date" id="programDate" name="date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="programTime">Time</label>
+                                    <input type="text" id="programTime" name="time" placeholder="10:00 AM - 2:00 PM" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="programLocation">Location</label>
+                                    <input type="text" id="programLocation" name="location" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="programStatus">Status</label>
+                                    <select id="programStatus" name="status" required>
+                                        <option value="upcoming">Upcoming</option>
+                                        <option value="ongoing">Ongoing</option>
+                                        <option value="completed">Completed</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Add Program</button>
+                            </form>
+                        </div>
+                        <!-- Programs List -->
+                        <div class="list-section">
+                            <h3>Current Programs</h3>
+                            <div id="programsList" class="items-list">
+                                <!-- Programs will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Publications Tab -->
+                <div id="publicationsTab" class="tab-content">
+                    <div class="admin-grid">
+                        <!-- Add Publication Form -->
+                        <div class="form-section">
+                            <h3>Add New Publication</h3>
+                            <form id="publicationsForm" class="admin-form">
+                                <div class="form-group">
+                                    <label for="publicationTitle">Title</label>
+                                    <input type="text" id="publicationTitle" name="title" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="publicationCategory">Category</label>
+                                    <select id="publicationCategory" name="category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="research">Research Papers</option>
+                                        <option value="articles">Articles</option>
+                                        <option value="reports">Reports</option>
+                                        <option value="newsletters">Newsletters</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="publicationDescription">Short Description</label>
+                                    <textarea id="publicationDescription" name="description" rows="3" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="publicationAbstract">Abstract</label>
+                                    <textarea id="publicationAbstract" name="abstract" rows="4" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="publicationContent">Content</label>
+                                    <textarea id="publicationContent" name="content" rows="6" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="publicationAuthor">Author</label>
+                                    <input type="text" id="publicationAuthor" name="author" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="publicationType">Type</label>
+                                    <input type="text" id="publicationType" name="type" placeholder="PDF, Article, etc." required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="publicationImage">Image URL</label>
+                                    <input type="url" id="publicationImage" name="image" placeholder="https://images.unsplash.com/..." required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="publicationFileUrl">File URL</label>
+                                    <input type="url" id="publicationFileUrl" name="fileUrl" placeholder="https://example.com/document.pdf">
+                                </div>
+                                <div class="form-group">
+                                    <label for="publicationDownloadUrl">Download URL</label>
+                                    <input type="url" id="publicationDownloadUrl" name="downloadUrl" placeholder="https://example.com/download.pdf">
+                                </div>
+                                <div class="form-group">
+                                    <label for="publicationDate">Date</label>
+                                    <input type="date" id="publicationDate" name="date" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Add Publication</button>
+                            </form>
+                        </div>
+                        <!-- Publications List -->
+                        <div class="list-section">
+                            <h3>Current Publications</h3>
+                            <div id="publicationsList" class="items-list">
+                                <!-- Publications will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>SABAH College Union</h3>
+                        <p>Empowering students through leadership, community service, and academic excellence.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="programs.html">Programs</a></li>
+                            <li><a href="publications.html">Publications</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <p>Email: info@sabah.edu</p>
+                        <p>Phone: +1 234 567 8900</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 SABAH College Union. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="supabase-config.js"></script>
+    <script src="admin.js"></script>
+    <script src="script.js"></script>
+    <script defer>
+    // Admin Sign In Logic
+    const adminSignInModal = document.getElementById('adminSignInModal');
+    const adminSignInForm = document.getElementById('adminSignInForm');
+    const adminSignInError = document.getElementById('adminSignInError');
+    const adminProtectedContent = document.getElementById('adminProtectedContent');
+
+    // Hardcoded credentials
+    const ADMIN_USERNAME = 'admin';
+    const ADMIN_PASSWORD = 'sabah2025';
+    const ADMIN_SESSION_KEY = 'adminSignedIn';
+    const ADMIN_SESSION_TIME_KEY = 'adminSignedInTime';
+    const SESSION_DURATION_MS = 10 * 60 * 1000; // 10 minutes
+
+    // Helper to show/hide modal
+    function showAdminModal() {
+        adminSignInModal.classList.add('open');
+        adminSignInModal.style.display = 'flex';
+    }
+    function hideAdminModal() {
+        adminSignInModal.classList.remove('open');
+        adminSignInModal.style.display = 'none';
+    }
+
+    // Helper to check if session is still valid
+    function isSessionValid() {
+        const signedIn = sessionStorage.getItem(ADMIN_SESSION_KEY) === 'true';
+        const signInTime = parseInt(sessionStorage.getItem(ADMIN_SESSION_TIME_KEY), 10);
+        if (!signedIn || isNaN(signInTime)) return false;
+        const now = Date.now();
+        return (now - signInTime) < SESSION_DURATION_MS;
+    }
+
+    // Check session on load
+    if (isSessionValid()) {
+        hideAdminModal();
+        adminProtectedContent.style.display = '';
+    } else {
+        sessionStorage.removeItem(ADMIN_SESSION_KEY);
+        sessionStorage.removeItem(ADMIN_SESSION_TIME_KEY);
+        showAdminModal();
+        adminProtectedContent.style.display = 'none';
+    }
+
+    adminSignInForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const username = document.getElementById('adminUsername').value.trim();
+        const password = document.getElementById('adminPassword').value;
+        if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+            sessionStorage.setItem(ADMIN_SESSION_KEY, 'true');
+            sessionStorage.setItem(ADMIN_SESSION_TIME_KEY, Date.now().toString());
+            hideAdminModal();
+            adminProtectedContent.style.display = '';
+            adminSignInError.style.display = 'none';
+            adminSignInForm.reset();
+        } else {
+            adminSignInError.textContent = 'Invalid username or password.';
+            adminSignInError.style.display = 'block';
+        }
+    });
+
+    // Optional: auto-logout after 10 minutes if the user stays on the page
+    setInterval(function() {
+        if (!isSessionValid()) {
+            sessionStorage.removeItem(ADMIN_SESSION_KEY);
+            sessionStorage.removeItem(ADMIN_SESSION_TIME_KEY);
+            showAdminModal();
+            adminProtectedContent.style.display = 'none';
+        }
+    }, 30 * 1000); // check every 30 seconds
+    </script>
+</body>
+</html> 

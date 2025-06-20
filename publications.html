@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - SABAH College Union</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="publications.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>SABAH</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="programs.html" class="nav-link">Programs</a></li>
+                <li><a href="publications.html" class="nav-link active">Publications</a></li>
+                <li><a href="index.html#members" class="nav-link">Members</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero publications-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Publications</h1>
+            <p class="hero-subtitle">Explore our research papers, articles, and academic publications</p>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="publications-section">
+        <div class="container">
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Publications</button>
+                <button class="filter-btn" data-filter="research">Research Papers</button>
+                <button class="filter-btn" data-filter="articles">Articles</button>
+                <button class="filter-btn" data-filter="reports">Reports</button>
+                <button class="filter-btn" data-filter="newsletters">Newsletters</button>
+            </div>
+
+            <!-- Publications Grid -->
+            <div class="publications-grid" id="publicationsGrid">
+                <!-- Publications will be loaded here dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Publication Modal -->
+    <div id="publicationModal" class="modal">
+        <div class="modal-content">
+            <!-- Modal content will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SABAH College Union</h3>
+                    <p>Empowering students through leadership, community service, and academic excellence.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@sabah.edu</p>
+                    <p>Phone: +1 234 567 8900</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SABAH College Union. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="supabase-config.js"></script>
+    <script src="publications.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
