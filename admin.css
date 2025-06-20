@@ -292,18 +292,24 @@
         padding: 0 20px;
     }
     
-    .admin-title, .admin-subtitle, .hero-content {
-        margin: 0 !important;
-        padding: 0 !important;
-        text-align: center !important;
-        width: 100% !important;
-        position: static !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
+    .hero-title {
+        font-size: 2.8rem;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2.5rem;
+        line-height: 1.6;
+        padding: 0 10px;
+    }
+
+    .admin-section .container{
+        margin-top: 4rem !important;
     }
     
-    .admin-section, .hero, .admin-hero {
+    .admin-section{
         padding-top: 70px !important;
         min-height: calc(100vh - 70px) !important;
         align-items: flex-start !important;
@@ -337,22 +343,26 @@
 }
 
 @media (max-width: 480px) {
-    .admin-section, .hero, .admin-hero {
+    .admin-section{
         padding-top: 60px !important;
         min-height: calc(100vh - 60px) !important;
         align-items: flex-start !important;
-        box-sizing: border-box !important;
+        box-sizing: border-box !important; 
+    }
+
+    .admin-section .container{
+        margin-top: 6rem !important;
     }
     
-    .admin-title, .admin-subtitle, .hero-content {
-        margin: 0 !important;
-        padding: 0 !important;
-        text-align: center !important;
-        width: 100% !important;
-        position: static !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
+    .admin-title {
+        font-size: 2.4rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .admin-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 0 5px;
     }
     
     .form-section,
