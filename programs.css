@@ -1,7 +1,6 @@
 /* Programs Page Specific Styles */
 
-/* Page Hero */
-.page-hero {
+.programs-hero {
     min-height: 100vh;
     height: 100vh;
     display: flex;
@@ -10,27 +9,25 @@
     color: white;
     position: relative;
     overflow: hidden;
-    padding-top: 0;
-    padding-bottom: 0;
 }
 
-.programs-hero {
-    min-height: 100vh;
-    height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding-top: 0;
-    padding-bottom: 0;
+.hero-content {
+    flex: 1;
+    z-index: 2;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
 }
 
-.page-hero .hero-title {
-    font-size: 3rem;
+.hero-title {
+    font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
     animation: fadeInUp 1s ease;
 }
 
-.page-hero .hero-subtitle {
-    font-size: 1.2rem;
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
     opacity: 0.9;
     animation: fadeInUp 1s ease 0.2s both;
 }
@@ -378,12 +375,17 @@
 
 /* Mobile Responsive Design */
 @media (max-width: 768px) {
-    .page-hero .hero-title {
-        font-size: 2.5rem;
+    .hero-title {
+        font-size: 2.8rem;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
     }
-    
-    .page-hero .hero-subtitle {
-        font-size: 1rem;
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2.5rem;
+        line-height: 1.6;
+        padding: 0 10px;
     }
     
     .filter-buttons {
@@ -437,28 +439,28 @@
         padding: 10px 18px;
     }
     
-    .programs-hero,
-    .page-hero {
+    .programs-hero {
         padding-top: 70px !important;
         min-height: calc(100vh - 70px) !important;
         align-items: flex-start !important;
         box-sizing: border-box !important;
     }
+
     .hero-content {
-        margin: 0 !important;
-        padding: 0 !important;
-        text-align: center !important;
-        width: 100% !important;
-        position: static !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
+        margin-top: 4rem !important;
     }
 }
 
 @media (max-width: 480px) {
-    .page-hero .hero-title {
-        font-size: 2rem;
+    .hero-title {
+        font-size: 2.4rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        padding: 0 5px;
     }
     
     .filter-buttons {
@@ -501,15 +503,10 @@
         align-items: flex-start !important;
         box-sizing: border-box !important;
     }
+
+
     .hero-content {
-        margin: 0 !important;
-        padding: 0 !important;
-        text-align: center !important;
-        width: 100% !important;
-        position: static !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
+        margin-top: 6rem !important;
     }
 }
 
