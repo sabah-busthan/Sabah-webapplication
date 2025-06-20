@@ -821,14 +821,7 @@ section {
     }
 
     .hero-content {
-        margin: 0 !important;
-        padding: 0 !important;
-        text-align: center !important;
-        width: 100% !important;
-        position: static !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
+        margin-top: 2.5rem !important;
     }
 }
 
@@ -977,14 +970,7 @@ section {
     }
 
     .hero-content {
-        margin: 0 !important;
-        padding: 0 !important;
-        text-align: center !important;
-        width: 100% !important;
-        position: static !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
+        margin-top: 2rem !important;
     }
 }
 
