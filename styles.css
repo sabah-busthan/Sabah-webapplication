@@ -97,9 +97,9 @@ body {
 
 .hero-content {
     flex: 1;
-    padding: 0 20px;
     z-index: 2;
-    margin-left: 6rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
 }
 
 .hero-title {
@@ -814,16 +814,14 @@ section {
 
     .hero,
     .main-hero {
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
 
     .hero-content {
-        width: 100% !important;
-        text-align: center !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+        margin-top: 4rem !important;
     }
 }
 
@@ -965,16 +963,14 @@ section {
 
     .hero,
     .main-hero {
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
 
     .hero-content {
-        width: 100% !important;
-        text-align: center !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+        margin-top: 2rem !important;
     }
 }
 
